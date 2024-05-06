@@ -1,8 +1,42 @@
 # 中文
 ### 使用SSH自动部署到服务器
-### 目前仅支持vite项目，计划后续支持所有node项目类型
+项目采用 [chalk](https://github.com/chalk/chalk) 和`ora`实现与`vite`一致的控制台风格
 
-目前支持的配置项如下：
+目前仅支持vite项目，计划后续支持所有node项目类型，支持的配置项如下：
+
+## 安装
+
+```bash
+npm install vite-plugin-better-deploy -D
+```
+或者
+```bash
+pnpm install vite-plugin-better-deploy -D
+```
+或者
+```bash
+yarn add vite-plugin-better-deploy -D
+```
+
+## 使用示例
+### vite.config.ts
+```typescript
+import AutoDeploy from 'vite-plugin-better-deploy'
+
+export default {
+  plugins: [
+    AutoDeploy({
+      host: '127.0.0.1',
+      username: 'root',
+      password: '123456',
+      remotePath: '/www/wwwroot/example',
+      previewPath: 'https://github.com/strange-qwq/auto_deploy',
+    })
+  ]
+}
+```
+
+## 配置项
 ```
 export type PluginConfig = ClientConfig & {
     /**
@@ -49,9 +83,43 @@ export interface ClientConfig {
 
 # English
 ### Automatically deploy to servers using SSH
-### Currently only supporting vite projects, plans to support all node project types in the future
+The project uses `chalk` and `ora` to implement a console style consistent with `vite`.
 
-The currently supported configuration items are as follows:
+At present, only the `vite` project is supported, and plans to support all node project types in the future.
+
+## Install
+
+```bash
+npm install vite-plugin-better-deploy -D
+```
+or
+```bash
+pnpm install vite-plugin-better-deploy -D
+```
+or
+```bash
+yarn add vite-plugin-better-deploy -D
+```
+
+## Example
+### vite.config.ts
+```typescript
+import AutoDeploy from 'vite-plugin-better-deploy'
+
+export default {
+    plugins: [
+        AutoDeploy({
+            host: '127.0.0.1',
+            username: 'root',
+            password: '123456',
+            remotePath: '/www/wwwroot/example',
+            previewPath: 'https://github.com/strange-qwq/auto_deploy',
+        })
+    ]
+}
+```
+
+## Configuration
 ```
 export type PluginConfig = ClientConfig & {
     /**
@@ -95,3 +163,6 @@ export interface ClientConfig {
     password: string
 }
 ```
+
+# Special Thanks
+- [vite-plugin-ssh-deploy](https://github.com/9romise/vite-plugin-ssh-deploy)
