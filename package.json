@@ -1,0 +1,73 @@
+{
+  "name": "vite-plugin-better-deploy",
+  "version": "0.0.8",
+  "description": "auto deploy",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "release": "bumpp",
+    "publish": "npm publish",
+    "recoveryOrigin": "npm config delete registry",
+    "setOrigin": "npm config set registry https://registry.npmmirror.com",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strange-qwq/auto_deploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strange-qwq/auto_deploy/issues"
+  },
+  "author": {
+    "name": "QWQ",
+    "email": "1456158721@qq.com",
+    "url": "https://github.com/strange-qwq"
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "ssh",
+    "ssh2",
+    "sftp",
+    "remote",
+    "upload",
+    "deploy"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.20",
+    "node-ssh": "^13.2.0",
+    "ora": "^8.0.1",
+    "vite": "^5.2.11"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.12.9",
+    "@types/ssh2": "^1.15.0",
+    "bumpp": "^9.4.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
