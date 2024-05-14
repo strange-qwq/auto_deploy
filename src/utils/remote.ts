@@ -3,7 +3,7 @@ import ora from 'ora'
 import path from 'path'
 import chalk from 'chalk'
 import { NodeSSH } from 'node-ssh'
-import { ClientConfig } from './types'
+import { ClientConfig } from '../types'
 import { fmtLocalPath, fmtRemotePath } from './utils'
 
 export default class RemoteClient {
@@ -26,7 +26,7 @@ export default class RemoteClient {
         this.remoteRoot = remoteRoot
     }
 
-    async connect({host, port, username, password}: ClientConfig) {
+    async connect({ host, port = 22, username, password }: ClientConfig) {
         await this.conn.connect({host, port, username, password})
         console.log(chalk.green(`🔗 connect to ${host} success!`))
     }
@@ -58,7 +58,7 @@ export default class RemoteClient {
                         {
                             recursive: true,
                             concurrency: 5,
-                            tick: (localFile, remoteFile, error) => {
+                            tick: (_localFile, _remoteFile, error) => {
                                 if(error) console.log(`❌ upload error: ${error}`)
                                 this._spinner.text = `🚀 deploying...<${++this._progress}/${this._progressTotal}>`
                             }

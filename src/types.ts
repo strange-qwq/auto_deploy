@@ -12,6 +12,14 @@ export type PluginConfig = ClientConfig & {
      */
     removeLocal?: boolean
     /**
+     * 项目文件夹根路径（绝对路径）
+     */
+    projectPath: string
+    /**
+     * 项目构建文件夹路径（从项目根目录开始，默认为 dist）
+     */
+    distPath: string
+    /**
      * 服务器上传的完整路径
      */
     remotePath: string
