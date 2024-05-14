@@ -1,13 +1,12 @@
 {
   "name": "vite-plugin-better-deploy",
-  "version": "0.0.8",
+  "version": "0.1.0-alpha.5",
   "description": "auto deploy",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "tsup",
     "release": "bumpp",
-    "publish": "npm publish",
     "recoveryOrigin": "npm config delete registry",
     "setOrigin": "npm config set registry https://registry.npmmirror.com",
     "preinstall": "npx only-allow pnpm"
@@ -60,9 +59,11 @@
     "inquirer": "^9.2.20",
     "node-ssh": "^13.2.0",
     "ora": "^8.0.1",
-    "vite": "^5.2.11"
+    "vite": "^5.2.11",
+    "webpack": "^5.91.0"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.0",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.12.9",
     "@types/ssh2": "^1.15.0",
